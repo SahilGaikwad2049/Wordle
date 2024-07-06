@@ -1,0 +1,51 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #121213;
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.word{
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    padding: 15px 0;
+}
+
+.nav button{
+    border: none;
+    cursor: pointer;
+}
+
+.line{
+    width: 100%;
+    height: 2px;
+    border: none;
+    background-color: #b3b3b3;
+    margin-bottom: 45px;
+}
+
+.guess{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 9px;
+}
+
+.tile{
+    width: 70px;
+    border: 1px solid white;
+    height: 70px;
+}
