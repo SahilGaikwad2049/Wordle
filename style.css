@@ -42,10 +42,21 @@ body{
     display: grid;
     grid-template-columns: repeat(5,1fr);
     gap: 9px;
+    font-size: 38px;
+    font-weight:700;
 }
 
 .tile{
     width: 70px;
     border: 1px solid #b3b3b3;
     height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tiles{
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
 }
