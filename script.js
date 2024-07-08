@@ -27,16 +27,16 @@ let words = [
     'HINGE', 'STOIC', 'EVERY', 'GRASP', 'ANGRY', 'OCEAN', 'PROUD', 'VISIT',
     'VALID', 'NIFTY', 'CRAZY', 'TABLE', 'WEAVE', 'DRAPE', 'BAKER', 'JELLY',
     'ALERT', 'BLOOM', 'DWELL', 'DRIVE', 'VALET', 'PENNY', 'SHINE', 'QUOTA',
-    'FANCY', 'KNACK', 'BRISK', 'KNEAD', 'FOAMY'
+    'FANCY', 'KNACK', 'BRISK', 'KNEAD', 'FOAMY', 'THUMB', 'SHAPE', 'SNACK',
+    'CRIED', 'LOWER', 'WHORE', 'SWEET', 'SIGMA', 'SHIFT', 'SHIRT', 'LEVEL',
+    'ALPHA', 'GAMMA', 'CRANE', 'NAKED', 'EXUDE', 'LIVER', 'FRIED', 'CHESS',
+    'FERRY', 'MARRY', 'BLESS', 'BLISS', 'FLICK', 'FROCK'
 ]
-
-
-// let currentLetters = currentGuess.dataset.letters;
 
 function chooseWord(){
     words = words.sort(()=>Math.random() - 0.5);
-    soln = words[1];
-    console.log(soln)
+    soln = words[Math.floor(Math.random()*words.length)];
+    console.log(soln);
 }
 
 chooseWord();
@@ -51,7 +51,7 @@ document.addEventListener("keydown", (e) => {
     } else if(e.key === 'Backspace' && currentGuess.dataset.letters != ""){
         deleteLetters()
     } else if(e.key === 'Enter' && currentGuess.dataset.letters.length == 5){
-        // console.log("submitted")
+
         for(let i = 0; i < 5; i++)
         {
             revealTile(i, compareLetters(i));
@@ -69,16 +69,11 @@ function updateLetters(letter){
     let newLetters = oldLetters + letter;
     let currentTile = newLetters.length;
     currentGuess.dataset.letters = newLetters;
-    // console.log('currentTile = '+ currentTile)
-    // console.log('currentGuessCount = ' + currentGuessCount)
-    // console.log('currentLetters = ' + currentGuess.dataset.letters)
-    // console.log('updated currentLetters: ' + currentGuess.dataset.letters)
 
     updateTiles(currentTile,letter);
 }
 
 function updateTiles(tileNumber, letter){
-    // console.log('updateTiles('+ tileNumber + letter +')')
     let currentTile = document.querySelector('#guess'+currentGuessCount+'tile'+tileNumber)
     currentTile.innerText = letter;
 }
@@ -99,7 +94,6 @@ function deleteTiles(tileNumber){
 function compareLetters(position){
     let guessedLetter = currentGuess.dataset.letters.charAt(position)
     let solnLetter = soln.charAt(position)
-    // console.log(guessedLetter, solnLetter)
 
     if(guessedLetter == solnLetter){
         console.log("correct")
