@@ -55,7 +55,7 @@ let words = [
 function chooseWord(){
     words = words.sort(()=>Math.random() - 0.5);
     soln = words[Math.floor(Math.random()*words.length)];
-    // console.log(soln);
+    console.log(soln);
 }
 
 chooseWord();

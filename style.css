@@ -82,9 +82,9 @@ body{
 .tags{
     font-size: 15px;
     letter-spacing: normal;
-    position: absolute;
+    /* position: absolute;
     bottom: -60px;
-    right: 15px;
+    right: 15px; */
     font-weight: 400;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
