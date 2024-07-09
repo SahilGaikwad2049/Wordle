@@ -49,7 +49,8 @@ let words = [
     'HOIST', 'MOIST', 'SHARK', 'CAMEL', 'PANEL', 'MOVIE', 'ACTOR', 'PASTE',
     'YEAST', 'SEIZE', 'MOUNT', 'BLUNT', 'SHARP', 'SCALE', 'RULER', 'FRONT',
     'SNEAK', 'SLIDE', 'LOSER', 'ENTER', 'FAINT', 'PAINT', 'BRAWL', 'SMALL',
-    'TRADE', 'STORM', 'TREAT', 'OUTER', 'INNER'
+    'TRADE', 'STORM', 'TREAT', 'OUTER', 'INNER', 'STAIR', 'STAKE', 'STARE',
+    'TRAIL', 'TRAIT', 'TRIAL', 'COURT', 'SCENT'
 ]
 
 function chooseWord(){
