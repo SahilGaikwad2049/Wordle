@@ -55,6 +55,8 @@ Contributions are welcome! If you have suggestions for any improvements or new f
 
 ## Acknowledgments
 Inspired by the original Wordle game created by Josh Wardle.
+#### https://www.nytimes.com/games/wordle/index.html
+#### Inspired by the original Wordle game created by Josh Wardle.
 
 ## Contact
 If you have any questions or feedback, feel free to reach out via my mail : sahilpankaj.gaikwad.phe23@itbhu.ac.in
