@@ -1,4 +1,4 @@
-console.log("code")
+// console.log("code")
 
 const pattern = /[a-z]/;
 let currentGuessCount = 1;
@@ -30,7 +30,13 @@ let words = [
     'FANCY', 'KNACK', 'BRISK', 'KNEAD', 'FOAMY', 'THUMB', 'SHAPE', 'SNACK',
     'CRIED', 'LOWER', 'WHORE', 'SWEET', 'SIGMA', 'SHIFT', 'SHIRT', 'LEVEL',
     'ALPHA', 'GAMMA', 'CRANE', 'NAKED', 'EXUDE', 'LIVER', 'FRIED', 'CHESS',
-    'FERRY', 'MARRY', 'BLESS', 'BLISS', 'FLICK', 'FROCK'
+    'FERRY', 'MARRY', 'BLESS', 'BLISS', 'FLICK', 'FROCK', 'BLARE', 'NINJA',
+    'WRUNG', 'RIGHT', 'WRITE', 'WRONG', 'BALLS', 'BEACH', 'SHEEP', 'FROTH',
+    'GLARE', 'FLAIR', 'BLACK', 'WHITE', 'GREEN', 'PEACH', 'LOVER', 'SEVEN',
+    'EIGHT', 'ROUND', 'SOUND', 'COULD', 'WOULD', 'MOULD', 'THING', 'ALLEY',
+    'ALIAS', 'ALIEN', 'BLOAT', 'GLOAT', 'FLOAT', 'SLOTH', 'PRESS', 'PRUNE',
+    'FLEET', 'BRING', 'SLICE', 'SPLIT', 'COLOR', 'SOLAR', 'BOOBS', 'PUSSY',
+    'PENIS', 'JEANS', 'GENES', 'SCENE', 'ODOUR', 'CATCH', 'MATCH', 'WATCH'
 ]
 
 function chooseWord(){
@@ -42,11 +48,11 @@ function chooseWord(){
 chooseWord();
 
 document.addEventListener("keydown", (e) => {
-    console.log("keypress: "+e.key)
+    // console.log("keypress: "+e.key)
 
     let press = e.key;
     if(press.length == 1 && pattern.test(press)){
-        console.log('isLetter');
+        // console.log('isLetter');
         updateLetters(press.toUpperCase())
     } else if(e.key === 'Backspace' && currentGuess.dataset.letters != ""){
         deleteLetters()
@@ -55,6 +61,7 @@ document.addEventListener("keydown", (e) => {
         for(let i = 0; i < 5; i++)
         {
             revealTile(i, compareLetters(i));
+            
         }
         // console.log(checkWin());
         if(!checkWin()){
@@ -63,6 +70,7 @@ document.addEventListener("keydown", (e) => {
         }
     }
 });
+
 
 function updateLetters(letter){
     let oldLetters = currentGuess.dataset.letters;
@@ -80,9 +88,9 @@ function updateTiles(tileNumber, letter){
 
 function deleteLetters(){
     let oldLetters = currentGuess.dataset.letters;
-    console.log(oldLetters)
+    // console.log(oldLetters)
     let newLetters = oldLetters.slice(0, -1)
-    console.log(newLetters)
+    // console.log(newLetters)
     currentGuess.dataset.letters = currentGuess.dataset.letters.slice(0,-1);
     deleteTiles(oldLetters.length)
 }
@@ -96,7 +104,7 @@ function compareLetters(position){
     let solnLetter = soln.charAt(position)
 
     if(guessedLetter == solnLetter){
-        console.log("correct")
+        // console.log("correct")
         return 'correct';
     } else {
         if(checkLetters(guessedLetter)){
@@ -112,22 +120,24 @@ function checkLetters(letter){
     return soln.includes(letter);
 }
 
-function revealTile(i, status){
+function revealTile(i, state){
     let tileNum = i + 1;
     let tile = document.querySelector('#guess'+currentGuessCount+'tile'+tileNum)
 
+    // switch(status){
+    //     case 'correct':
+    //         tile.classList.add('correct');
+    //         break;
+    //     case 'present':
+    //         tile.classList.add('present');
+    //         break;
+    //     case 'absent':
+    //         tile.classList.add('absent');
+    //         break;
+    // }
 
-    switch(status){
-        case 'correct':
-            tile.classList.add('correct');
-            break;
-        case 'present':
-            tile.classList.add('present');
-            break;
-        case 'absent':
-            tile.classList.add('absent');
-            break;
-    }
+    flipTile(tileNum, state)
+    updateKeyboard(currentGuess.dataset.letters.charAt(i), state);
 }
 
 function checkWin(){
@@ -136,5 +146,26 @@ function checkWin(){
     }
     else{
         return false;
+    }
+}
+
+function flipTile(tileNum, state){
+    let tile = document.querySelector('#guess'+currentGuessCount+'tile'+tileNum);
+    tile.classList.add('flip-in')
+    setTimeout(()=>{
+        tile.classList.add(state)
+    }, 250)
+    setTimeout(()=>{
+        tile.classList.remove('flip-in')
+        tile.classList.add('flip-out')
+    }, 250)
+}
+
+function updateKeyboard(letter, state){
+    let key = document.querySelector(`.key[data-key="${letter.toLowerCase()}"]`)
+    if(key)
+    {
+        // key.classList.remove('correct', 'present', 'absent');
+        key.classList.add(state);
     }
 }

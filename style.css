@@ -83,8 +83,73 @@ body{
     font-size: 15px;
     letter-spacing: normal;
     position: absolute;
-    top: 50px;
-    right: 50px;
+    bottom: -60px;
+    right: 15px;
     font-weight: 400;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@keyframes flip-in {
+    from{
+        transform: rotateX(0deg);
+    }
+    to{
+        transform: rotateX(-90deg);
+    }
+}
+
+@keyframes flip-out {
+    from{
+        transform: rotateX(-90deg);
+    }
+    to{
+        transform: rotateX(0deg);
+    }
+}
+
+.flip-in{
+    animation: flip-in 250ms;
+    animation-fill-mode: forwards;
+}
+
+flip-out{
+    animation: flip-out 250ms;
+    animation-fill-mode: forwards;
+}
+
+.keyboard{
+    display: flex;
+    flex-direction: column;
+    width: 32vw;
+    margin: 50px auto;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+}
+
+.upper{
+    display: flex;
+    gap: 10px;
+}
+.mid{
+    display: flex;
+    gap: 10px;
+}
+.lower{
+    display: flex;
+    gap: 10px;
+}
+
+.key{
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 5px; 
+    background-color: #818384;
+    cursor: pointer;
+    font-weight: bolder;
 }
