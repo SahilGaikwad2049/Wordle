@@ -54,8 +54,8 @@ Feedback is provided through color-coded tiles and keys to indicate the accuracy
 Contributions are welcome! If you have suggestions for any improvements or new features, feel free to open an issue or submit a pull request.
 
 ## Acknowledgments
-https://www.nytimes.com/games/wordle/index.html
-Inspired by the original Wordle game created by Josh Wardle.
+#### https://www.nytimes.com/games/wordle/index.html
+#### Inspired by the original Wordle game created by Josh Wardle.
 
 ## Contact
 If you have any questions or feedback, feel free to reach out via my mail : sahilpankaj.gaikwad.phe23@itbhu.ac.in
