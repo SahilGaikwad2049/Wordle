@@ -23,7 +23,7 @@ let words = [
     'JUMPY', 'WRIST', 'EAGLE', 'TRACE', 'KNEEL', 'ELITE', 'UPPER', 'IMAGE',
     'PRIZE', 'TORCH', 'DRAMA', 'CRISP', 'CRATE', 'ROUGH', 'NERVE', 'LODGE',
     'QUERY', 'YACHT', 'JUDGE', 'JOKER', 'EAGER', 'MANGO', 'ORGAN', 'HOUSE',
-    'SUGAR', 'NORTH', 'QUACK', 'IRATE', 'RIVER', 'UMBRA', 'PLUME', 'GRAND',
+    'SUGAR', 'NORTH', 'QUACK', 'RIVER', 'UMBRA', 'PLUME', 'GRAND', 'STORE',
     'HINGE', 'STOIC', 'EVERY', 'GRASP', 'ANGRY', 'OCEAN', 'PROUD', 'VISIT',
     'VALID', 'NIFTY', 'CRAZY', 'TABLE', 'WEAVE', 'DRAPE', 'BAKER', 'JELLY',
     'ALERT', 'BLOOM', 'DWELL', 'DRIVE', 'VALET', 'PENNY', 'SHINE', 'QUOTA',
@@ -35,14 +35,27 @@ let words = [
     'GLARE', 'FLAIR', 'BLACK', 'WHITE', 'GREEN', 'PEACH', 'LOVER', 'SEVEN',
     'EIGHT', 'ROUND', 'SOUND', 'COULD', 'WOULD', 'MOULD', 'THING', 'ALLEY',
     'ALIAS', 'ALIEN', 'BLOAT', 'GLOAT', 'FLOAT', 'SLOTH', 'PRESS', 'PRUNE',
-    'FLEET', 'BRING', 'SLICE', 'SPLIT', 'COLOR', 'SOLAR', 'BOOBS', 'PUSSY',
-    'PENIS', 'JEANS', 'GENES', 'SCENE', 'ODOUR', 'CATCH', 'MATCH', 'WATCH'
+    'FLEET', 'BRING', 'SLICE', 'SPLIT', 'COLOR', 'SOLAR', 'BOOKS', 'KITTY',
+    'PENIS', 'JEANS', 'GENES', 'SCENE', 'ODOUR', 'CATCH', 'MATCH', 'WATCH',
+    'HOTEL', 'EARTH', 'FLOOR', 'LIGHT', 'SMELL', 'SLIME', 'FAIRY', 'DAIRY',
+    'SLAVE', 'SLEEP', 'REIGN', 'SHADE', 'CHASE', 'TOWER', 'TOWEL', 'BLOOD',
+    'QUEEN', 'CHILD', 'SLOPE', 'SHAKE', 'BREAD', 'TWEAK', 'COVER', 'ROVER',
+    'ROAST', 'ALTAR', 'QUEUE', 'STAGE', 'DWARF', 'SOUTH', 'PEAKS', 'RIFLE',
+    'SWORD', 'BRAIN', 'HEART', 'FETCH', 'FIGHT', 'SIGHT', 'NIGHT', 'MIGHT',
+    'WATER', 'PARTY', 'HYENA', 'ARENA', 'CANON', 'GUEST', 'WASTE', 'WAIST',
+    'RAISE', 'RINSE', 'CLEAN', 'FRAME', 'SLAIN', 'HATCH', 'SWEEP', 'TRAIN',
+    'PAUSE', 'SMILE', 'DOUBT', 'SPOON', 'BASIL', 'BREAK', 'BRAKE', 'SNAIL',
+    'SNAKE', 'BLADE', 'GRADE', 'WHILE', 'WHINE', 'POWER', 'TASTE', 'RANGE',
+    'HOIST', 'MOIST', 'SHARK', 'CAMEL', 'PANEL', 'MOVIE', 'ACTOR', 'PASTE',
+    'YEAST', 'SEIZE', 'MOUNT', 'BLUNT', 'SHARP', 'SCALE', 'RULER', 'FRONT',
+    'SNEAK', 'SLIDE', 'LOSER', 'ENTER', 'FAINT', 'PAINT', 'BRAWL', 'SMALL',
+    'TRADE', 'STORM', 'TREAT', 'OUTER', 'INNER'
 ]
 
 function chooseWord(){
     words = words.sort(()=>Math.random() - 0.5);
     soln = words[Math.floor(Math.random()*words.length)];
-    console.log(soln);
+    // console.log(soln);
 }
 
 chooseWord();
@@ -61,7 +74,6 @@ document.addEventListener("keydown", (e) => {
         for(let i = 0; i < 5; i++)
         {
             revealTile(i, compareLetters(i));
-            
         }
         // console.log(checkWin());
         if(!checkWin()){
@@ -122,7 +134,11 @@ function checkLetters(letter){
 
 function revealTile(i, state){
     let tileNum = i + 1;
-    let tile = document.querySelector('#guess'+currentGuessCount+'tile'+tileNum)
+    let tile = document.querySelector('#guess' + currentGuessCount + 'tile' + tileNum)
+
+    // if(!tile) {
+    //     console.error(`${tileNum}`)
+    // }
 
     // switch(status){
     //     case 'correct':
@@ -135,9 +151,10 @@ function revealTile(i, state){
     //         tile.classList.add('absent');
     //         break;
     // }
-
+    let letter = currentGuess.dataset.letters.charAt(i);
+    // console.log(`${letter}`, `${state}`)
     flipTile(tileNum, state)
-    updateKeyboard(currentGuess.dataset.letters.charAt(i), state);
+    updateKeyboard(letter, state);
 }
 
 function checkWin(){
@@ -162,10 +179,15 @@ function flipTile(tileNum, state){
 }
 
 function updateKeyboard(letter, state){
-    let key = document.querySelector(`.key[data-key="${letter.toLowerCase()}"]`)
-    if(key)
-    {
-        // key.classList.remove('correct', 'present', 'absent');
-        key.classList.add(state);
-    }
+    let key = document.querySelector(`.keyboard .key[data-key="${letter}"]`)
+
+    // if(!key) {
+    //     console.error(`${letter}`)
+    //     return
+    // }
+    // key.classList.remove('correct', 'present', 'absent');
+    key.classList.remove('correct');
+    key.classList.remove('absent');
+    key.classList.remove('present');
+    key.classList.add(state);
 }
