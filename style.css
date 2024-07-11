@@ -125,7 +125,7 @@ flip-out{
     gap: 10px;
     justify-content: center;
     align-items: center;
-    font-size: 26px;
+    font-size: 27px;
 }
 
 .upper{
@@ -167,4 +167,14 @@ flip-out{
 .key.present{
     background-color: #cbac25;
     border-color: #cbac25;
+}
+
+.key.enter{
+    font-size: 18px;
+    width: 90px;
+}
+
+.key.del{
+    font-size: 20px;
+    width: 80px;
 }

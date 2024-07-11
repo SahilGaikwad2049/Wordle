@@ -65,7 +65,7 @@ document.addEventListener("keydown", (e) => {
     // console.log("keypress: "+e.key)
 
     let press = e.key;
-    if(press.length == 1 && pattern.test(press)){
+    if(press.length == 1 && pattern.test(press) && currentGuess.dataset.letters.length < 5){
         // console.log('isLetter');
         updateLetters(press.toUpperCase())
     } else if(e.key === 'Backspace' && currentGuess.dataset.letters != ""){
@@ -182,13 +182,44 @@ function flipTile(tileNum, state){
 function updateKeyboard(letter, state){
     let key = document.querySelector(`.keyboard .key[data-key="${letter}"]`)
 
-    // if(!key) {
-    //     console.error(`${letter}`)
-    //     return
-    // }
-    // key.classList.remove('correct', 'present', 'absent');
     key.classList.remove('correct');
     key.classList.remove('absent');
     key.classList.remove('present');
     key.classList.add(state);
 }
+
+function handleVirtualKeyboard(key){
+    if(key.length == 1 && currentGuess.dataset.letters.length < 5){
+        updateLetters(key.toUpperCase())
+    } else if(key === 'Backspace' && currentGuess.dataset.letters != ""){
+        deleteLetters()
+    } else if(key === 'Enter' && currentGuess.dataset.letters.length == 5){
+
+        for(let i = 0; i < 5; i++)
+        {
+            revealTile(i, compareLetters(i));
+        }
+        if(!checkWin()){
+            currentGuessCount = currentGuessCount + 1;
+            currentGuess = document.querySelector('#guess'+currentGuessCount);
+        }
+    }
+}
+
+function startTheKeyboard(){
+    let keys = document.querySelectorAll(".key")
+    keys.forEach(key=>{
+        key.addEventListener("click", ()=>{
+            let keyValue = key.getAttribute('data-key');
+            if(keyValue === 'Enter' || keyValue === 'Backspace'){
+                handleVirtualKeyboard(keyValue);
+            }
+            else {
+                console.log('clicked')
+                handleVirtualKeyboard(keyValue.toUpperCase());
+            }
+        })
+    }) 
+}
+
+startTheKeyboard();
