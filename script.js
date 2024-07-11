@@ -50,7 +50,16 @@ let words = [
     'YEAST', 'SEIZE', 'MOUNT', 'BLUNT', 'SHARP', 'SCALE', 'RULER', 'FRONT',
     'SNEAK', 'SLIDE', 'LOSER', 'ENTER', 'FAINT', 'PAINT', 'BRAWL', 'SMALL',
     'TRADE', 'STORM', 'TREAT', 'OUTER', 'INNER', 'STAIR', 'STAKE', 'STARE',
-    'TRAIL', 'TRAIT', 'TRIAL', 'COURT', 'SCENT'
+    'TRAIL', 'TRAIT', 'TRIAL', 'COURT', 'SCENT', 'CROSS', 'PLUCK', 'CLICK',
+    'ASTER', 'TULIP', 'CRUSH', 'LOTUS', 'LARGE', 'FREAK', 'PHONY', 'STALE',
+    'FRESH', 'SWEAT', 'CLONE', 'ROBOT', 'BOARD', 'BLOCK', 'STAFF', 'GRAPH',
+    'MOUSE', 'NOISE', 'BATON', 'POINT', 'CLOVE', 'FRUIT', 'CRUMB', 'SPACE',
+    'PLACE', 'CLOSE', 'FLOSS', 'SNIFF', 'LOCAL', 'TOTAL', 'CLIMB', 'DREAM',
+    'SHOOT', 'TRUCK', 'STICK', 'FIELD', 'GRASS', 'TOOTH', 'TEETH', 'CANAL',
+    'DRESS', 'BRAND', 'PLANT', 'GRANT', 'LEAVE', 'SIEVE', 'SIEGE', 'STYLE',
+    'DREAD', 'LATCH', 'MOTOR', 'ROTOR', 'RATIO', 'BERTH', 'CLERK', 'CARDS',
+    'METRE', 'POUND', 'BOUND', 'THREE', 'WORTH', 'RADIO', 'EXAMS', 'MONTH',
+    'THIGH', 'SQUAT', 'COLON', 'CAMEO', 'EQUIP'
 ]
 
 function chooseWord(){
