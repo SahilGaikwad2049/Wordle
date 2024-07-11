@@ -23,7 +23,7 @@ Each game starts with a randomly selected word from a diverse list.
 1. Clone the repository:
    git clone https://github.com/SahilGaikwad2049/Wordle.git
 2. Navigate to the project directory:
-   cd wordle-clone
+   cd Wordle
 3. Open index.html in your web browser to start playing.
    
 ## Usage
