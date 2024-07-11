@@ -7,7 +7,7 @@ This project is a fun and interactive implementation of the popular word-guessin
 ### Interactive Gameplay: 
 Enjoy a dynamic word-guessing game with real-time feedback.
 ### Keyboard Interaction: 
-Use your keyboard to enter guesses, with keys updating colors based on correctness.
+Use your keyboard or the virtual keyboard to enter guesses, with keys updating colors based on how close you were to your guess.
 ### Responsive Design: 
 Optimized for both desktop and mobile devices.
 ### Random Word Selection: 

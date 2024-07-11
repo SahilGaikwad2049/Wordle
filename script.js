@@ -59,7 +59,7 @@ let words = [
     'DRESS', 'BRAND', 'PLANT', 'GRANT', 'LEAVE', 'SIEVE', 'SIEGE', 'STYLE',
     'DREAD', 'LATCH', 'MOTOR', 'ROTOR', 'RATIO', 'BERTH', 'CLERK', 'CARDS',
     'METRE', 'POUND', 'BOUND', 'THREE', 'WORTH', 'RADIO', 'EXAMS', 'MONTH',
-    'THIGH', 'SQUAT', 'COLON', 'CAMEO', 'EQUIP'
+    'THIGH', 'SQUAT', 'COLON', 'CAMEO', 'EQUIP', 'PEACE', 'SMEAR'
 ]
 
 function chooseWord(){
