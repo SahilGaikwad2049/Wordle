@@ -90,6 +90,9 @@ document.addEventListener("keydown", (e) => {
             currentGuessCount = currentGuessCount + 1;
             currentGuess = document.querySelector('#guess'+currentGuessCount);
         }
+        else {
+            jump();
+        }
     }
 });
 
@@ -167,9 +170,22 @@ function revealTile(i, state){
     updateKeyboard(letter, state);
 }
 
+function jump() {
+    for(let i =0; i < 5; i++)
+    {
+        setTimeout(()=>{
+            let currentTile = document.querySelector('#guess'+currentGuessCount+'tile' + (i+1))
+            currentTile.classList.add('jump')
+        }, i*100)
+        
+    }
+    
+}   
+
 function checkWin(){
     if(soln == currentGuess.dataset.letters){
         return true;
+        jump();
     }
     else{
         return false;
@@ -224,7 +240,6 @@ function startTheKeyboard(){
                 handleVirtualKeyboard(keyValue);
             }
             else {
-                console.log('clicked')
                 handleVirtualKeyboard(keyValue.toUpperCase());
             }
         })
@@ -232,3 +247,4 @@ function startTheKeyboard(){
 }
 
 startTheKeyboard();
+
